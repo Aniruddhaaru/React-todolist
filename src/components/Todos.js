@@ -1,14 +1,17 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Icon } from "react-icons-kit";
 import { trash } from "react-icons-kit/feather/trash";
 import { edit2 } from "react-icons-kit/feather/edit2";
 import { removeTodo, handleCheckBox } from "../redux/todoapp/action";
 
-export const Todos = ({ handleEditClick, editFormVisibility }) => {
+export const Todos = ({ todos, handleEditClick, editFormVisibility, showCompleted }) => {
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.operationsReducer);
-  return todos.map((todo) => (
+
+  // Filter tasks based on completion status and showCompleted state
+  const filteredTodos = showCompleted ? todos.filter(todo => todo.completed) : todos.filter(todo => !todo.completed);
+
+  return filteredTodos.map((todo) => (
     <div key={todo.id} className="todo-box">
       <div className="content">
         {editFormVisibility === false && (
