@@ -5,11 +5,17 @@ import { trash } from "react-icons-kit/feather/trash";
 import { edit2 } from "react-icons-kit/feather/edit2";
 import { removeTodo, handleCheckBox } from "../redux/todoapp/action";
 
-export const Todos = ({ todos, handleEditClick, editFormVisibility, showCompleted }) => {
+export const Todos = ({
+  todos,
+  handleEditClick,
+  editFormVisibility,
+  showCompleted,
+}) => {
   const dispatch = useDispatch();
 
-  // Filter tasks based on completion status and showCompleted state
-  const filteredTodos = showCompleted ? todos.filter(todo => todo.completed) : todos.filter(todo => !todo.completed);
+  const filteredTodos = showCompleted
+    ? todos.filter((todo) => todo.completed)
+    : todos.filter((todo) => !todo.completed);
 
   return filteredTodos.map((todo) => (
     <div key={todo.id} className="todo-box">
@@ -46,6 +52,3 @@ export const Todos = ({ todos, handleEditClick, editFormVisibility, showComplete
     </div>
   ));
 };
-
-
-  
