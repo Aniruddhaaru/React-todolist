@@ -2,8 +2,8 @@ import { ADD_TODO, DELETE_ALL, REMOVE_TODO, UPDATE_CHECKBOX, UPDATE_TODO } from 
 
 const initialState=[
     {id: 1, todo: 'Buy Laptop', completed: false},
-    {id: 2, todo: 'Master Redux', completed: false},
-    {id: 3, todo: 'Watering Plants', completed: true},
+    {id: 2, todo: 'Buy Mobile', completed: false},
+    {id: 3, todo: 'Buy Watch', completed: true},
 ];
 
 export const operationsReducer=(state=initialState, action)=>{
